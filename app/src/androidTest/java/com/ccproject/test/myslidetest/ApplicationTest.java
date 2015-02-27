@@ -1,4 +1,4 @@
-package com.appliperso.test.myslidetest;
+package com.ccproject.test.myslidetest;
 
 import android.app.Application;
 import android.test.ApplicationTestCase;

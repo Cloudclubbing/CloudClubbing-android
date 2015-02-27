@@ -1,4 +1,4 @@
-package com.appliperso.test.myslidetest;
+package com.ccproject.cloud.cloudclubbing;
 
 import android.app.Activity;
 
@@ -13,6 +13,8 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.support.v4.widget.DrawerLayout;
+
+import com.ccproject.test.myslidetest.R;
 
 
 public class MainActivity extends ActionBarActivity

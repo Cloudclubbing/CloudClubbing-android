@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/CloudClubbing-android.iml" filepath="$PROJECT_DIR$/CloudClubbing-android.iml" />
       <module fileurl="file://$PROJECT_DIR$/MyslideTest.iml" filepath="$PROJECT_DIR$/MyslideTest.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
