@@ -3,8 +3,9 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/CloudClubbing-android.iml" filepath="$PROJECT_DIR$/CloudClubbing-android.iml" />
-      <module fileurl="file://$PROJECT_DIR$/MyslideTest.iml" filepath="$PROJECT_DIR$/MyslideTest.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/app/libs/libs.iml" filepath="$PROJECT_DIR$/app/libs/libs.iml" />
+      <module fileurl="file://$PROJECT_DIR$/app/libs/volley/volley.iml" filepath="$PROJECT_DIR$/app/libs/volley/volley.iml" />
     </modules>
   </component>
 </project>

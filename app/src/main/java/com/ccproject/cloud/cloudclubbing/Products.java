@@ -10,7 +10,11 @@ public class Products {
     int                 photoId;
     int                 price;
 
+    public Products(String name, int price) {
+        this.name = name;
+        this.price = price;
 
+}
     public int getId() {
         return id;
     }
