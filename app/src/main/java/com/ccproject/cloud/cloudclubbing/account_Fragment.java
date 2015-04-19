@@ -38,7 +38,7 @@ import java.util.Map;
 public class account_Fragment extends DialogFragment implements View.OnClickListener
 {
     View                rootview;
-    HttpRequest         myHttpRequest = new HttpRequest();
+    //HttpRequest         myHttpRequest = new HttpRequest();
     String              requestResult;
 
     @Nullable
@@ -71,9 +71,7 @@ public class account_Fragment extends DialogFragment implements View.OnClickList
 
         //myHttpRequest.getRequest();
         //RequestQueue    my_requestQueue     =   ApplicationController.getInstance().getRequestQueue();
-        String          response;
 
-        response = "";
 
 
         EditText text = (EditText)getView().findViewById(R.id.username);

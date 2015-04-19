@@ -5,12 +5,25 @@ package com.ccproject.cloud.cloudclubbing;
  */
 public class Customer {
     int                     id;
-    private String          name;
+    public  String          name;
     int                     age;
-    private String          password;
+    public  String          password;
     int                     photoId;
     int                     commandId;
+    public String           email;
     private PaiementCard    card;
+
+
+
+    public Customer(int my_id, String my_name, String my_email, String my_password) {
+
+        this.id = my_id;
+        this.name = my_name;
+        this.email = my_email;
+        this.password = my_password;
+
+    }
+
 
     public int getId() {
         return id;
@@ -68,6 +81,11 @@ public class Customer {
         this.card = card;
     }
 
-    public Customer() {
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 }
