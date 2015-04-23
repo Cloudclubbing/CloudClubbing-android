@@ -12,18 +12,16 @@
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="action_example">Actualisation</string>
     <string name="action_settings">Settings</string>
-    <string name="title_activity_splash">Cloud Clubbing</string>
-    <string name="cancelbtn">Senregistrer</string>
+    <string name="title_activity_splash">SplashActivity</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="cancelbtn">Cancel</string>
     <string name="action_sign_in">Connect</string>
     <string name="prompt_email">Email</string>
     <string name="prompt_password">Password</string>
-    <string name="action_sign_in_short">Sign In</string>
+    <string name="action_sign_in_short">Singn In</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="IP">http://163.5.84.210/api/</string>
-    <string name="title_activity_account">AccountActivity</string>
-    <string name="title_activity_register">RegisterActivity</string>
-
-
-
+    <string name="error_general">A problem occurred</string>
+    <string name="error_badParam">Bad parameters</string>
 
 </resources>
