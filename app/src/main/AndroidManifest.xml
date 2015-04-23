@@ -24,8 +24,12 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.ccproject.cloud.cloudclubbing.RegisterActivity"
-            android:label="@string/title_activity_register" >
+            android:name="com.ccproject.cloud.cloudclubbing.registerActivity"
+            android:label="@string/title_activity_register"
+            android:parentActivityName="com.ccproject.cloud.cloudclubbing.MainActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.ccproject.cloud.cloudclubbing.MainActivity" />
         </activity>
     </application>
 

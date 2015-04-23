@@ -4,11 +4,13 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.DialogFragment;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -49,11 +51,12 @@ public class account_Fragment extends DialogFragment implements View.OnClickList
 
     @Nullable
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
+    {
             rootview = inflater.inflate(R.layout.account_layout,container, false);
 
-        Button my_cancelbtn = (Button) rootview.findViewById(R.id.cancelbtn);
-        my_cancelbtn.setOnClickListener(this);
+        Button my_registerbtn = (Button) rootview.findViewById(R.id.registerbtn);
+        my_registerbtn.setOnClickListener(this);
         Button my_signInbtn = (Button) rootview.findViewById(R.id.email_sign_in_button);
         my_signInbtn.setOnClickListener(this);
         return rootview;
@@ -66,8 +69,8 @@ public class account_Fragment extends DialogFragment implements View.OnClickList
             case R.id.email_sign_in_button:
                 signIn();
                 break;
-            case R.id.cancelbtn:
-                cancelbtn();
+            case R.id.registerbtn:
+                registerbtn();
                 break;
         }
 
@@ -91,22 +94,10 @@ public class account_Fragment extends DialogFragment implements View.OnClickList
 
     }
 
-    public void                 cancelbtn()
+    public void                 registerbtn()
     {
-        RequestQueue    my_requestQueue     =   ApplicationController.getInstance().getRequestQueue();
-
-        /*Intent intent = new Intent(this, Home.class);
-        startActivity(intent);*/
-        AlertDialog alertDialog = new AlertDialog.Builder(getActivity()).create();
-        alertDialog.setTitle("Connexion");
-        alertDialog.setMessage("Result :" + my_requestQueue);
-        alertDialog.setButton("OK", new DialogInterface.OnClickListener() {
-            public void onClick(DialogInterface dialog, int which) {
-            }
-        });
-//            alertDialog.setIcon(R.drawable.icon);
-        alertDialog.show();
-
+        Intent appel = new Intent(getActivity(), registerActivity.class);
+        startActivity(appel);
     }
 
 
@@ -133,7 +124,7 @@ public class account_Fragment extends DialogFragment implements View.OnClickList
                             //si le serveur renvoie les informations:
                             if (response.getString("request").equals("OK")) {
                                 Log.d("RESULT OF THE REQUEST:", "OK");
-                                Toast.makeText(getActivity(), "Conection succeful", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(getActivity(), "Connection réussie", Toast.LENGTH_SHORT).show();
                                 Customer.getInstance().setId(response.getInt("id"));
                                 Customer.getInstance().setEmail(response.getString("email"));
                                 Customer.getInstance().setName(response.getString("name"));
@@ -156,7 +147,7 @@ public class account_Fragment extends DialogFragment implements View.OnClickList
                 }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                Toast.makeText(getActivity(), "Conection error", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getActivity(), "Connection error", Toast.LENGTH_SHORT).show();
                 VolleyLog.e("Error: ", error.getMessage());
             }
         });
