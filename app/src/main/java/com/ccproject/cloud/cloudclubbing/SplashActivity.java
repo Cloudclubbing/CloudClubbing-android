@@ -2,8 +2,10 @@ package com.ccproject.cloud.cloudclubbing;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 
@@ -12,14 +14,13 @@ import com.ccproject.test.myslidetest.R;
 
 public class SplashActivity extends Activity {
 
-    private final int SPLASH_DISPLAY_LENGTH = 5000;
-
+    private final int                   SPLASH_DISPLAY_LENGTH = 2000;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
-        new Handler().postDelayed(new Runnable(){
+        new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
                 /* Create an Intent that will start the Menu-Activity. */
@@ -28,7 +29,11 @@ public class SplashActivity extends Activity {
                 SplashActivity.this.finish();
             }
         }, SPLASH_DISPLAY_LENGTH);
-
+        SharedPreferences settings = this.getSharedPreferences("LoginPrefFile", 0);
+        Customer.getInstance().setId(settings.getInt("Id", 0));
+        Customer.getInstance().setLogin(settings.getString("username", null));
+        Customer.getInstance().setEmail(settings.getString("email", null));
+        Log.d("UserINFO: ", "ID: " + Customer.getInstance().getId() + " username: " + Customer.getInstance().getLogin());
 
     }
 

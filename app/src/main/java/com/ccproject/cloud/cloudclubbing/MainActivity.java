@@ -2,11 +2,13 @@ package com.ccproject.cloud.cloudclubbing;
 
 import android.app.Activity;
 
+import android.content.SharedPreferences;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.ActionBar;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -44,6 +46,7 @@ public class MainActivity extends ActionBarActivity
         mNavigationDrawerFragment.setUp(
                 R.id.navigation_drawer,
                 (DrawerLayout) findViewById(R.id.drawer_layout));
+
     }
 
     @Override
@@ -68,7 +71,10 @@ public class MainActivity extends ActionBarActivity
                 objFragment = new contact_Fragment();
                 break;
             case 5:
-                objFragment = new account_Fragment();
+                if(Customer.getInstance().getId() <= 0)
+                    objFragment = new account_Fragment();
+                else
+                    objFragment = new contact_Fragment();
                 break;
         }
         // update the main content by replacing fragments

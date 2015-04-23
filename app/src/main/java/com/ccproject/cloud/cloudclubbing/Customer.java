@@ -6,22 +6,22 @@ package com.ccproject.cloud.cloudclubbing;
 public class Customer {
     int                     id;
     public  String          name;
-    int                     age;
+    public  String          login;
     public  String          password;
-    int                     photoId;
+    public  String          pictureURL;
     int                     commandId;
-    public String           email;
+    public  String          email;
     private PaiementCard    card;
+    private static Customer instance = new Customer();
 
 
 
-    public Customer(int my_id, String my_name, String my_email, String my_password) {
+    private Customer() {
 
-        this.id = my_id;
-        this.name = my_name;
-        this.email = my_email;
-        this.password = my_password;
+    }
 
+    public static synchronized Customer getInstance() {
+        return instance;
     }
 
 
@@ -41,14 +41,6 @@ public class Customer {
         this.name = name;
     }
 
-    public int getAge() {
-        return age;
-    }
-
-    public void setAge(int age) {
-        this.age = age;
-    }
-
     public String getPassword() {
         return password;
     }
@@ -57,12 +49,12 @@ public class Customer {
         this.password = password;
     }
 
-    public int getPhotoId() {
-        return photoId;
+    public String getPictureURL() {
+        return pictureURL;
     }
 
-    public void setPhotoId(int photoId) {
-        this.photoId = photoId;
+    public void setPictureURL(String pictureURL) {
+        this.pictureURL = pictureURL;
     }
 
     public int getCommandId() {
@@ -88,4 +80,13 @@ public class Customer {
     public void setEmail(String email) {
         this.email = email;
     }
+
+    public String getLogin() {
+        return login;
+    }
+
+    public void setLogin(String login) {
+        this.login = login;
+    }
+
 }
