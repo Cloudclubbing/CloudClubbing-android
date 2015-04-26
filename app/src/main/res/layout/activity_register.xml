@@ -10,7 +10,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="S&apos;enregistrer"
-        android:id="@+id/button"
+        android:id="@+id/register_button"
         android:layout_marginBottom="34dp"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true" />
@@ -18,14 +18,14 @@
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/imageView"
+        android:id="@+id/user_default_image"
         android:background="@drawable/login_user_default_icon"
         android:src="@drawable/login_user_default_icon"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true" />
 
     <AutoCompleteTextView
-        android:id="@+id/username"
+        android:id="@+id/username_register"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="@string/prompt_user"
@@ -33,12 +33,12 @@
         android:maxLines="1"
         android:singleLine="true"
         android:layout_marginTop="81dp"
-        android:layout_below="@+id/imageView"
+        android:layout_below="@+id/user_default_image"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 
     <AutoCompleteTextView
-        android:id="@+id/autoCompleteTextView"
+        android:id="@+id/email_register"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="@string/prompt_email"
@@ -46,22 +46,22 @@
         android:maxLines="1"
         android:singleLine="true"
         android:layout_marginTop="46dp"
-        android:layout_below="@+id/username"
+        android:layout_below="@+id/username_register"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 
     <EditText
+        android:id="@+id/password_register"
+        android:layout_below="@+id/email_register"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:inputType="textPassword"
         android:ems="10"
-        android:id="@+id/editText"
         android:hint="@string/prompt_password"
-        android:layout_below="@+id/autoCompleteTextView"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_marginTop="43dp"
-        android:layout_alignRight="@+id/autoCompleteTextView"
-        android:layout_alignEnd="@+id/autoCompleteTextView" />
+        android:layout_alignRight="@+id/email_register"
+        android:layout_alignEnd="@+id/email_register" />
 
 </RelativeLayout>

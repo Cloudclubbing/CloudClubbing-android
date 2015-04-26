@@ -2,6 +2,7 @@ package com.ccproject.cloud.cloudclubbing;
 
 import android.app.Activity;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.ActionBar;
@@ -31,7 +32,6 @@ public class MainActivity extends ActionBarActivity
      * Used to store the last screen title. For use in {@link #restoreActionBar()}.
      */
     private CharSequence mTitle;
-    public  Activity     my_activity;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -71,10 +71,10 @@ public class MainActivity extends ActionBarActivity
                 objFragment = new contact_Fragment();
                 break;
             case 5:
-                if(Customer.getInstance().getId() <= 0)
+               if(Customer.getInstance().getId() <= 0)
                     objFragment = new account_Fragment();
                 else
-                    objFragment = new contact_Fragment();
+                   objFragment = new accountSettingFragment();
                 break;
         }
         // update the main content by replacing fragments

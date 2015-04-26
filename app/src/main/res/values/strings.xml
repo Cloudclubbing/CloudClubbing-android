@@ -11,23 +11,26 @@
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="action_example">Actualisation</string>
-    <string name="action_settings">Settings</string>
+    <string name="action_settings">Parametres</string>
     <string name="title_activity_splash">SplashActivity</string>
 
-    <string name="cancelbtn">Cancel</string>
+    <string name="cancelbtn">Annuler</string>
     <string name="action_sign_in">Se connecter</string>
     <string name="registerbtn">S\'enregistrer</string>
 
     <string name="prompt_email">Email</string>
     <string name="prompt_user">Utilisateur</string>
-    <string name="prompt_password">Password</string>
-    <string name="action_sign_in_short">Singn In</string>
+    <string name="prompt_password">Mot de passe</string>
+    <string name="action_sign_in_short">Se connecter</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="IP">http://163.5.84.210/api/</string>
-    <string name="error_general">A problem occurred</string>
-    <string name="error_badParam">Bad parameters</string>
+    <string name="error_general">Un problème est survenu</string>
+    <string name="error_unable_access_server">Impoosible d\'accéder au serveur</string>
+    <string name="error_bad_param">Identifiant ou Mot de passe non reconnus</string>
+    <string name="account_exists">Le compte existe déjà</string>
     <string name="title_activity_register">Enregistrement de compte</string>
-
-
+    <string name="title_activity_account_setting">AccountSetting</string>
+    <string name="register_succed">Enregistrement reussi</string>
+    <string name="conection_succed">Connection réussie</string>
 
 </resources>

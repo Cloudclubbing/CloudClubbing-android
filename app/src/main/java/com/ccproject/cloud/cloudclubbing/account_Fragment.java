@@ -1,9 +1,5 @@
 package com.ccproject.cloud.cloudclubbing;
 
-import android.app.Activity;
-import android.app.AlertDialog;
-import android.app.Dialog;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -17,25 +13,20 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.Request;
-import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.VolleyLog;
 import com.android.volley.toolbox.JsonObjectRequest;
-import com.android.volley.toolbox.StringRequest;
 import com.ccproject.test.myslidetest.R;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 import java.io.UnsupportedEncodingException;
 import java.security.NoSuchAlgorithmException;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+
 
 import static com.ccproject.cloud.cloudclubbing.Tools.SHA1;
 
@@ -44,9 +35,8 @@ import static com.ccproject.cloud.cloudclubbing.Tools.SHA1;
  */
 public class account_Fragment extends DialogFragment implements View.OnClickListener
 {
-    View                rootview;
-    String              requestResult;
-    public static final String PREFS_NAME = "LoginPrefFile";
+    View                        rootview;
+    public static final String  PREFS_NAME = "LoginPrefFile";
 
 
     @Nullable
@@ -82,15 +72,6 @@ public class account_Fragment extends DialogFragment implements View.OnClickList
         text = (EditText)getView().findViewById(R.id.password);
         String password = text.getText().toString();
         loginRequest(username, password);
-       /* AlertDialog alertDialog = new AlertDialog.Builder(getActivity()).create();
-        alertDialog.setTitle("Connexion");
-        alertDialog.setMessage("Result :" + requestResult);
-        alertDialog.setButton("OK", new DialogInterface.OnClickListener() {
-            public void onClick(DialogInterface dialog, int which) {
-            }
-        });
-//            alertDialog.setIcon(R.drawable.icon);
-        alertDialog.show();*/
 
     }
 
@@ -124,7 +105,7 @@ public class account_Fragment extends DialogFragment implements View.OnClickList
                             //si le serveur renvoie les informations:
                             if (response.getString("request").equals("OK")) {
                                 Log.d("RESULT OF THE REQUEST:", "OK");
-                                Toast.makeText(getActivity(), "Connection réussie", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(getActivity(), getString(R.string.conection_succed), Toast.LENGTH_SHORT).show();
                                 Customer.getInstance().setId(response.getInt("id"));
                                 Customer.getInstance().setEmail(response.getString("email"));
                                 Customer.getInstance().setName(response.getString("name"));
@@ -136,9 +117,15 @@ public class account_Fragment extends DialogFragment implements View.OnClickList
                                 editor.putString("email", Customer.getInstance().getEmail());
                                 editor.putInt("Id", Customer.getInstance().getInstance().getId());
                                 editor.commit();
+                                Fragment objFragment = new accountSettingFragment();
+
+                                FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+                                fragmentManager.beginTransaction()
+                                        .replace(R.id.container,objFragment)
+                                        .commit();
                             }
                             else
-                                Toast.makeText(getActivity(), getText(R.string.error_badParam), Toast.LENGTH_SHORT).show();
+                                Toast.makeText(getActivity(), getString(R.string.error_bad_param), Toast.LENGTH_SHORT).show();
 
                         } catch (JSONException e) {
                             e.printStackTrace();
@@ -147,7 +134,7 @@ public class account_Fragment extends DialogFragment implements View.OnClickList
                 }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                Toast.makeText(getActivity(), "Connection error", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getActivity(), getString(R.string.error_unable_access_server), Toast.LENGTH_SHORT).show();
                 VolleyLog.e("Error: ", error.getMessage());
             }
         });
