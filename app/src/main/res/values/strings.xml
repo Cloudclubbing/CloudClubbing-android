@@ -32,5 +32,6 @@
     <string name="title_activity_account_setting">AccountSetting</string>
     <string name="register_succed">Enregistrement reussi</string>
     <string name="conection_succed">Connection réussie</string>
+    <string name="disconected">Vous vous êtes deconecter</string>
 
 </resources>

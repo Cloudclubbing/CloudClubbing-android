@@ -1,32 +1,147 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.ccproject.cloud.cloudclubbing.accountSettingFragment">
 
-    <ImageView
-        android:layout_width="153dp"
-        android:layout_height="114dp"
-        android:id="@+id/imageView2"
-        android:layout_gravity="left|top"
-        android:layout_marginLeft="10dp"
-        android:layout_marginTop="10dp" />
+    <TableRow
+        android:layout_height="fill_parent"
+        android:layout_width="match_parent"
+        android:gravity="center_horizontal">
+    </TableRow>
 
-    <TextView
-        android:layout_width="195dp"
-        android:layout_height="50dp"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Large Text"
-        android:id="@+id/textViewUsername"
-        android:layout_gravity="right|top"
-        android:layout_margin="15dp"
-        android:layout_marginLeft="20dp" />
+    <TableRow
+        android:id="@+id/tableRow1"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent">
 
-    <TextView
-        android:layout_width="216dp"
-        android:layout_height="84dp"
-        android:text="New Text"
-        android:id="@+id/textViewUserinfo"
-        android:layout_gravity="left|center_vertical"
-        android:layout_marginLeft="10dp" />
-</FrameLayout>
+        <ImageView
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:id="@+id/user_image"
+            android:padding="20dip"
+            android:gravity="center" />
+
+        <TextView
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Large Text"
+            android:id="@+id/userLogin_title"
+            android:padding="20dip"
+            android:gravity="center" />
+    </TableRow>
+
+    <TableRow
+        android:id="@+id/tableRow2"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:clickable="true">
+        <TextView
+
+            android:text="Name"
+            android:id="@+id/title_username_accountsetting"
+            android:layout_weight="1"
+            android:padding="20dip"
+            android:gravity="left"
+            android:layout_gravity="left"
+            android:clickable="false"
+            android:elegantTextHeight="true"
+            android:textColor="#000000" />
+        <TextView
+
+            android:text="New Text"
+            android:id="@+id/username_accountsetting"
+            android:layout_weight="1"
+            android:padding="20dip"
+            android:gravity="center"
+            android:layout_gravity="right"
+            android:clickable="false" />
+    </TableRow>
+
+    <TableRow
+        android:id="@+id/tableRow3"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:clickable="true">
+        <TextView
+            android:text="Email"
+            android:id="@+id/title_email_accountsetting"
+            android:layout_weight="1"
+            android:padding="20dip"
+            android:gravity="left"
+            android:layout_gravity="left"
+            android:textColor="#000000" />
+
+        <TextView
+
+            android:text="New Text"
+            android:id="@+id/email_accountsetting"
+            android:layout_weight="1"
+            android:padding="20dip"
+            android:gravity="center"
+            android:layout_gravity="right"
+            android:clickable="false" />
+    </TableRow>
+
+    <TableRow
+        android:id="@+id/tableRow4"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:clickable="true">
+        <TextView
+            android:text="Phone"
+            android:id="@+id/title_phone"
+            android:layout_weight="1"
+            android:padding="20dip"
+            android:gravity="left"
+            android:layout_gravity="left"
+            android:textColor="#000000" />
+
+        <TextView
+
+            android:text="New Text"
+            android:id="@+id/phone_accountsetting"
+            android:layout_weight="1"
+            android:padding="20dip"
+            android:gravity="center"
+            android:layout_gravity="right"
+            android:clickable="false" />
+    </TableRow>
+    <TableRow
+        android:id="@+id/tableRow5"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:clickable="true">
+        <TextView
+            android:text="Adress"
+            android:id="@+id/title_adress"
+            android:layout_weight="1"
+            android:padding="20dip"
+            android:gravity="left"
+            android:layout_gravity="left"
+            android:textColor="#000000" />
+
+        <TextView
+
+            android:text="New Text"
+            android:id="@+id/adress_accountsetting"
+            android:layout_weight="1"
+            android:padding="20dip"
+            android:gravity="center"
+            android:layout_gravity="right"
+            android:clickable="false" />
+    </TableRow>
+
+    <TableRow
+        android:id="@+id/tableRow6"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Disconect"
+            android:id="@+id/button_disconect"
+            android:layout_column="1" />
+    </TableRow>
+
+</TableLayout>
