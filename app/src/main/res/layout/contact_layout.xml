@@ -6,9 +6,32 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="On est sur la page contact"
-        android:id="@+id/textView"
+        android:text="Contact du club:"
+        android:id="@+id/textView2"
+        android:layout_marginTop="27dp"
         android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:typeface="serif"/>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imageView"
+        android:layout_marginTop="24dp"
+        android:src="@drawable/henesisclub150px"
+        android:layout_below="@+id/textView2"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Henesis Club"
+        android:id="@+id/textView3"
+        android:layout_marginTop="25dp"
+        android:layout_below="@+id/imageView"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="61dp" />
+        android:typeface="serif"/>
+
 </RelativeLayout>

@@ -20,7 +20,8 @@
             android:layout_height="100dp"
             android:id="@+id/user_image"
             android:padding="20dip"
-            android:gravity="center" />
+            android:gravity="center"
+            android:src="@drawable/logo_user" />
 
         <TextView
             android:textAppearance="?android:attr/textAppearanceLarge"
@@ -37,7 +38,7 @@
         android:clickable="true">
         <TextView
 
-            android:text="Name"
+            android:text="Nom"
             android:id="@+id/title_username_accountsetting"
             android:layout_weight="1"
             android:padding="20dip"
@@ -88,7 +89,7 @@
         android:layout_width="match_parent"
         android:clickable="true">
         <TextView
-            android:text="Phone"
+            android:text="Telephone"
             android:id="@+id/title_phone"
             android:layout_weight="1"
             android:padding="20dip"
@@ -112,7 +113,7 @@
         android:layout_width="match_parent"
         android:clickable="true">
         <TextView
-            android:text="Adress"
+            android:text="Adresse"
             android:id="@+id/title_adress"
             android:layout_weight="1"
             android:padding="20dip"
