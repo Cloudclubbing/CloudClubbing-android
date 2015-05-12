@@ -6,7 +6,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TextView;
 
-import com.ccproject.cloud.cloudclubbing.model.Customer;
+import com.ccproject.cloud.cloudclubbing.models.Customer;
 import com.ccproject.test.myslidetest.R;
 
 

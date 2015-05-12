@@ -22,7 +22,7 @@ import com.ccproject.cloud.cloudclubbing.fragments.contact_Fragment;
 import com.ccproject.cloud.cloudclubbing.fragments.media_Fragment;
 import com.ccproject.cloud.cloudclubbing.fragments.newsfeeds_Fragment;
 import com.ccproject.cloud.cloudclubbing.fragments.products_Fragment;
-import com.ccproject.cloud.cloudclubbing.model.Customer;
+import com.ccproject.cloud.cloudclubbing.models.Customer;
 import com.ccproject.test.myslidetest.R;
 
 

@@ -14,7 +14,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 
-import com.ccproject.cloud.cloudclubbing.model.Customer;
+import com.ccproject.cloud.cloudclubbing.models.Customer;
 import com.ccproject.test.myslidetest.R;
 
 

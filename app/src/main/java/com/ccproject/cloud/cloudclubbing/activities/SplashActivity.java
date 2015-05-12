@@ -9,7 +9,7 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 
-import com.ccproject.cloud.cloudclubbing.model.Customer;
+import com.ccproject.cloud.cloudclubbing.models.Customer;
 import com.ccproject.test.myslidetest.R;
 
 

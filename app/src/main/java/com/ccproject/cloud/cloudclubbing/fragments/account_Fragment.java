@@ -21,7 +21,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.VolleyLog;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.ccproject.cloud.cloudclubbing.activities.ApplicationController;
-import com.ccproject.cloud.cloudclubbing.model.Customer;
+import com.ccproject.cloud.cloudclubbing.models.Customer;
 import com.ccproject.cloud.cloudclubbing.activities.registerActivity;
 import com.ccproject.test.myslidetest.R;
 
