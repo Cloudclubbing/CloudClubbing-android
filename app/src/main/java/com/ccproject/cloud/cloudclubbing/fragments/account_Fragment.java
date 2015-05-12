@@ -1,4 +1,4 @@
-package com.ccproject.cloud.cloudclubbing;
+package com.ccproject.cloud.cloudclubbing.fragments;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -20,6 +20,9 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.VolleyLog;
 import com.android.volley.toolbox.JsonObjectRequest;
+import com.ccproject.cloud.cloudclubbing.activities.ApplicationController;
+import com.ccproject.cloud.cloudclubbing.model.Customer;
+import com.ccproject.cloud.cloudclubbing.activities.registerActivity;
 import com.ccproject.test.myslidetest.R;
 
 import org.json.JSONException;
@@ -28,11 +31,13 @@ import java.io.UnsupportedEncodingException;
 import java.security.NoSuchAlgorithmException;
 
 
-import static com.ccproject.cloud.cloudclubbing.Tools.SHA1;
+import static com.ccproject.cloud.cloudclubbing.tools.Tools.SHA1;
 
 /**
- * Created by Macbook on 24/02/15.
+ * Created by priteshasvine on 24/02/15.
+ * Last update by priteshasvine on 09/05/2015 22h 15mn.
  */
+
 public class account_Fragment extends DialogFragment implements View.OnClickListener
 {
     View                        rootview;
@@ -44,7 +49,7 @@ public class account_Fragment extends DialogFragment implements View.OnClickList
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
     {
             rootview = inflater.inflate(R.layout.account_layout,container, false);
-
+        //Récuperation des boutons depuis le layout dans le but de définir leur actions
         Button my_registerbtn = (Button) rootview.findViewById(R.id.registerbtn);
         my_registerbtn.setOnClickListener(this);
         Button my_signInbtn = (Button) rootview.findViewById(R.id.email_sign_in_button);
@@ -66,32 +71,40 @@ public class account_Fragment extends DialogFragment implements View.OnClickList
 
     }
 
+    /*
+        Récupère les paramètres de connexion et execute la requête
+    */
     private void                signIn() {
+
+        //récuperation de s paramètres entrés par l'utilisateur
         EditText text = (EditText)getView().findViewById(R.id.username);
         String username = text.getText().toString();
         text = (EditText)getView().findViewById(R.id.password);
         String password = text.getText().toString();
+        //execute la requête de l'utilisateur
         loginRequest(username, password);
 
     }
 
+    /*
+        Ouvre la page d'enregistrement
+    */
     public void                 registerbtn()
     {
         Intent appel = new Intent(getActivity(), registerActivity.class);
         startActivity(appel);
     }
 
-
+    /*
+        Execute la requête http de connection
+    */
     public void                 loginRequest(final String username, String password) {
 
         String          finalurl    =   getString(R.string.IP) + "user/login.php";
         finalurl                    =   finalurl + "?login=" + username + "&password=";
         try {
             finalurl = finalurl + SHA1(password);
-        } catch (UnsupportedEncodingException e) {
-            Toast.makeText(getActivity(), getText(R.string.error_general), Toast.LENGTH_SHORT).show();
-            e.printStackTrace();
-        } catch (NoSuchAlgorithmException e) {
+        } catch (UnsupportedEncodingException | NoSuchAlgorithmException e) {
             Toast.makeText(getActivity(), getText(R.string.error_general), Toast.LENGTH_SHORT).show();
             e.printStackTrace();
         }
@@ -101,8 +114,8 @@ public class account_Fragment extends DialogFragment implements View.OnClickList
                     @Override
                     public void onResponse(JSONObject response) {
                         try {
-                            VolleyLog.v("Response:%n %s", response.toString(4));
                             //si le serveur renvoie les informations:
+                            VolleyLog.v("Response:%n %s", response.toString(4));
                             if (response.getString("request").equals("OK")) {
                                 Log.d("RESULT OF THE REQUEST:", "OK");
                                 Toast.makeText(getActivity(), getString(R.string.conection_succed), Toast.LENGTH_SHORT).show();
@@ -115,7 +128,7 @@ public class account_Fragment extends DialogFragment implements View.OnClickList
                                 SharedPreferences.Editor editor = settings.edit();
                                 editor.putString("username", Customer.getInstance().getLogin());
                                 editor.putString("email", Customer.getInstance().getEmail());
-                                editor.putInt("Id", Customer.getInstance().getInstance().getId());
+                                editor.putInt("Id", Customer.getInstance().getId());
                                 editor.commit();
                                 Fragment objFragment = new accountSettingFragment();
 
@@ -134,11 +147,11 @@ public class account_Fragment extends DialogFragment implements View.OnClickList
                 }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
+                //En cas d'erreur de connexion au serveur
                 Toast.makeText(getActivity(), getString(R.string.error_unable_access_server), Toast.LENGTH_SHORT).show();
                 VolleyLog.e("Error: ", error.getMessage());
             }
         });
-
         // add the request object to the queue to be executed
         ApplicationController.getInstance().addToRequestQueue(req, "Login");
     }

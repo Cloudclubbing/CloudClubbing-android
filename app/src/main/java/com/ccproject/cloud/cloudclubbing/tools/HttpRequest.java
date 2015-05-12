@@ -1,6 +1,5 @@
-package com.ccproject.cloud.cloudclubbing;
+package com.ccproject.cloud.cloudclubbing.tools;
 
-import android.app.Activity;
 import android.util.Log;
 
 import com.android.volley.AuthFailureError;
@@ -11,7 +10,7 @@ import com.android.volley.VolleyLog;
 import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.StringRequest;
-import com.ccproject.test.myslidetest.R;
+import com.ccproject.cloud.cloudclubbing.activities.ApplicationController;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -19,8 +18,6 @@ import org.json.JSONObject;
 
 import java.util.HashMap;
 import java.util.Map;
-
-import static com.ccproject.cloud.cloudclubbing.ApplicationController.*;
 
 /**
  * Created by priteshasvinetsakou on 19/03/15.

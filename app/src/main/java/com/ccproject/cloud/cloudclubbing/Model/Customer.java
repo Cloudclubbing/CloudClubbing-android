@@ -1,4 +1,6 @@
-package com.ccproject.cloud.cloudclubbing;
+package com.ccproject.cloud.cloudclubbing.Model;
+
+import com.ccproject.cloud.cloudclubbing.PaiementCard;
 
 /**
  * Created by priteshasvinetsakou on 28/02/15.
@@ -7,11 +9,10 @@ public class Customer {
     int                     id;
     public  String          name;
     public  String          login;
-    public  String          password;
     public  String          pictureURL;
     int                     commandId;
     public  String          email;
-    private PaiementCard    card;
+    private PaiementCard card;
     private static Customer instance = new Customer();
 
 
@@ -39,14 +40,6 @@ public class Customer {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
     }
 
     public String getPictureURL() {

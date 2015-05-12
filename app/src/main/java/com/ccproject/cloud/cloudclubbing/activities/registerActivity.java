@@ -1,4 +1,4 @@
-package com.ccproject.cloud.cloudclubbing;
+package com.ccproject.cloud.cloudclubbing.activities;
 
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
@@ -25,7 +25,7 @@ import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
 import java.util.List;
 
-import static com.ccproject.cloud.cloudclubbing.Tools.SHA1;
+import static com.ccproject.cloud.cloudclubbing.tools.Tools.SHA1;
 
 
 public class registerActivity extends ActionBarActivity {

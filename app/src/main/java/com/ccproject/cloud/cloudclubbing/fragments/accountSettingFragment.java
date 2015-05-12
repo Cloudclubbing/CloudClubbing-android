@@ -1,4 +1,4 @@
-package com.ccproject.cloud.cloudclubbing;
+package com.ccproject.cloud.cloudclubbing.fragments;
 
 
 import android.content.SharedPreferences;
@@ -14,6 +14,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 
+import com.ccproject.cloud.cloudclubbing.model.Customer;
 import com.ccproject.test.myslidetest.R;
 
 

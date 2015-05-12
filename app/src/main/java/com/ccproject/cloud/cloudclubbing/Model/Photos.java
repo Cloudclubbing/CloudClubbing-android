@@ -1,4 +1,6 @@
-package com.ccproject.cloud.cloudclubbing;
+package com.ccproject.cloud.cloudclubbing.Model;
+
+import java.util.Date;
 
 /**
  * Created by priteshasvinetsakou on 28/02/15.
@@ -6,9 +8,9 @@ package com.ccproject.cloud.cloudclubbing;
 public class Photos {
 
     public int         id;
-    public String      name;
     public String      description;
     public String      link;
+    public Date                date;
 
     public int getId() {
         return id;
@@ -16,14 +18,6 @@ public class Photos {
 
     public void setId(int id) {
         this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
     }
 
     public String getDescription() {
@@ -42,4 +36,11 @@ public class Photos {
         this.link = link;
     }
 
+    public Date getDate() {
+        return date;
+    }
+
+    public void setDate(Date date) {
+        this.date = date;
+    }
 }

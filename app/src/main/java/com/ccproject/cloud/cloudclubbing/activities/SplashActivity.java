@@ -1,4 +1,4 @@
-package com.ccproject.cloud.cloudclubbing;
+package com.ccproject.cloud.cloudclubbing.activities;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -9,6 +9,7 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.ccproject.cloud.cloudclubbing.model.Customer;
 import com.ccproject.test.myslidetest.R;
 
 

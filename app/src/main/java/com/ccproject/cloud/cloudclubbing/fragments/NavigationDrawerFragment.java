@@ -1,4 +1,4 @@
-package com.ccproject.cloud.cloudclubbing;
+package com.ccproject.cloud.cloudclubbing.fragments;
 
 import android.support.v7.app.ActionBarActivity;
 import android.app.Activity;

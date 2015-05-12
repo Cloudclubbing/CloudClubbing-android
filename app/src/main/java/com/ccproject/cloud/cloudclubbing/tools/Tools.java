@@ -1,4 +1,4 @@
-package com.ccproject.cloud.cloudclubbing;
+package com.ccproject.cloud.cloudclubbing.tools;
 
 import java.io.UnsupportedEncodingException;
 import java.security.MessageDigest;

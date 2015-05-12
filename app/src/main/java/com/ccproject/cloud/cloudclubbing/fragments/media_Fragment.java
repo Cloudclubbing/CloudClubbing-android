@@ -1,4 +1,4 @@
-package com.ccproject.cloud.cloudclubbing;
+package com.ccproject.cloud.cloudclubbing.fragments;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;

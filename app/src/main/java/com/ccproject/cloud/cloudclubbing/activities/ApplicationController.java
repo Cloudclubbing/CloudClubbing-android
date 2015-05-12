@@ -1,23 +1,15 @@
-package com.ccproject.cloud.cloudclubbing;
+package com.ccproject.cloud.cloudclubbing.activities;
 
 import android.app.Application;
 import android.text.TextUtils;
 
-import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
-import com.android.volley.Response;
-import com.android.volley.VolleyError;
 import com.android.volley.VolleyLog;
-import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
+import com.ccproject.cloud.cloudclubbing.tools.HttpRequest;
 
 import org.apache.http.impl.client.DefaultHttpClient;
-import org.json.JSONObject;
-
-import java.net.URL;
-import java.util.HashMap;
-import java.util.Map;
 
 /**
  * Created by priteshasvinetsakou on 19/03/15.
@@ -31,7 +23,7 @@ public class ApplicationController extends Application {
 
     private static          ApplicationController           sInstance;
     private                 DefaultHttpClient               mHttpClient;
-    private static          HttpRequest                     my_httpRequest;
+    private static HttpRequest my_httpRequest;
 
 
     @Override

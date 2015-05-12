@@ -1,6 +1,5 @@
-package com.ccproject.cloud.cloudclubbing;
+package com.ccproject.cloud.cloudclubbing.fragments;
 
-import android.content.res.ColorStateList;
 import android.graphics.Color;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
@@ -11,6 +10,7 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.ccproject.cloud.cloudclubbing.model.Products;
 import com.ccproject.test.myslidetest.R;
 
 import java.util.ArrayList;

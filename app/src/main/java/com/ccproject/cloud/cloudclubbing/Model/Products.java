@@ -1,17 +1,22 @@
-package com.ccproject.cloud.cloudclubbing;
-
-import java.util.Date;
+package com.ccproject.cloud.cloudclubbing.Model;
 
 /**
  * Created by priteshasvinetsakou on 28/02/15.
+ * Last update by priteshasvinetsakou on 09/05/2015 22h 19mn.
  */
-public class Events {
+
+public class Products {
     int                 id;
     private String      name;
-    private Date        eventDate;
     private String      description;
-    int                 photoId;
+    String              url;
+    int                 price;
 
+    public Products(String name, int price) {
+        this.name = name;
+        this.price = price;
+
+}
     public int getId() {
         return id;
     }
@@ -28,14 +33,6 @@ public class Events {
         this.name = name;
     }
 
-    public Date getEventDate() {
-        return eventDate;
-    }
-
-    public void setEventDate(Date eventDate) {
-        this.eventDate = eventDate;
-    }
-
     public String getDescription() {
         return description;
     }
@@ -44,11 +41,20 @@ public class Events {
         this.description = description;
     }
 
-    public int getPhotoId() {
-        return photoId;
+    public String getPhotoId() {
+        return url;
     }
 
-    public void setPhotoId(int photoId) {
-        this.photoId = photoId;
+    public void setPhotoId(String pictureUrl) {
+        this.url = pictureUrl;
     }
+
+    public int getPrice() {
+        return price;
+    }
+
+    public void setPrice(int price) {
+        this.price = price;
+    }
+
 }

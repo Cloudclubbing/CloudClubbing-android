@@ -1,15 +1,12 @@
-package com.ccproject.cloud.cloudclubbing;
+package com.ccproject.cloud.cloudclubbing.activities;
 
 import android.app.Activity;
 
-import android.content.Intent;
-import android.content.SharedPreferences;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.ActionBar;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -17,6 +14,15 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.support.v4.widget.DrawerLayout;
 
+import com.ccproject.cloud.cloudclubbing.fragments.ItemFragment;
+import com.ccproject.cloud.cloudclubbing.fragments.NavigationDrawerFragment;
+import com.ccproject.cloud.cloudclubbing.fragments.accountSettingFragment;
+import com.ccproject.cloud.cloudclubbing.fragments.account_Fragment;
+import com.ccproject.cloud.cloudclubbing.fragments.contact_Fragment;
+import com.ccproject.cloud.cloudclubbing.fragments.media_Fragment;
+import com.ccproject.cloud.cloudclubbing.fragments.newsfeeds_Fragment;
+import com.ccproject.cloud.cloudclubbing.fragments.products_Fragment;
+import com.ccproject.cloud.cloudclubbing.model.Customer;
 import com.ccproject.test.myslidetest.R;
 
 
@@ -31,7 +37,7 @@ public class MainActivity extends ActionBarActivity
     /**
      * Used to store the last screen title. For use in {@link #restoreActionBar()}.
      */
-    private CharSequence mTitle;
+private CharSequence     mTitle;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
