@@ -33,6 +33,7 @@ public class DummyContent {
         addItem(new DummyItem("6", "Tekila"));
         addItem(new DummyItem("7", "Magnum"));
         addItem(new DummyItem("8", "Longisland"));
+        addItem(new DummyItem("9", "Mojito"));
     }
 
     private static void addItem(DummyItem item) {

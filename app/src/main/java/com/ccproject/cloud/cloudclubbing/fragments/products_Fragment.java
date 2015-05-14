@@ -43,7 +43,7 @@ public class products_Fragment extends Fragment
 
     public ArrayList<Products> get_tab_product() {
         ArrayList<Products> tab_product = new ArrayList<Products>();
-
+/*
         tab_product.add(new Products("Vodka", 15));
         tab_product.add(new Products("Champagne", 25));
         tab_product.add(new Products("Vin rouge", 15));
@@ -51,7 +51,7 @@ public class products_Fragment extends Fragment
         tab_product.add(new Products("Muscat", 5));
         tab_product.add(new Products("Coca Cola", 3));
         tab_product.add(new Products("Long Island", 15));
-
+*/
 
         return tab_product;
     }
