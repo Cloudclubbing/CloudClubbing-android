@@ -12,7 +12,7 @@
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="action_example">Actualisation</string>
     <string name="action_settings">Parametres</string>
-    <string name="title_activity_splash">SplashActivity</string>
+    <string name="title_activity_splash">Cloud Clubbing</string>
 
     <string name="cancelbtn">Annuler</string>
     <string name="action_sign_in">Se connecter</string>
