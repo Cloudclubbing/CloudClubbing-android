@@ -23,5 +23,11 @@ dependencies {
     compile fileTree(dir: 'libs', include: ['*'])
     compile 'com.android.support:appcompat-v7:21.0.3'
     compile project('libs:volley')
+    compile 'com.github.dexafree:materiallist:2.4.3'
+}
 
+repositories {
+    maven {
+        url "https://jitpack.io"
+    }
 }
