@@ -16,6 +16,8 @@ import com.android.volley.VolleyError;
 import com.android.volley.VolleyLog;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.ccproject.cloud.cloudclubbing.models.Customer;
+import com.ccproject.cloud.cloudclubbing.models.Events;
+import com.ccproject.cloud.cloudclubbing.models.Newsfeeds;
 import com.ccproject.cloud.cloudclubbing.models.NightClub;
 import com.ccproject.test.myslidetest.R;
 
@@ -34,6 +36,7 @@ public class SplashActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
         getNightClubInfoRequest(1);
+        getNewsfeedRequest();
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
@@ -119,4 +122,48 @@ public class SplashActivity extends Activity {
         // add the request object to the queue to be executed
         ApplicationController.getInstance().addToRequestQueue(req, "Contact");
     }
+
+    void getNewsfeedRequest() {
+
+        String Url = this.getString(R.string.IP) + "nightclub/fb_feed.php?id=1&max=";
+
+        JsonObjectRequest req = new JsonObjectRequest(Request.Method.GET, Url, null,
+                new Response.Listener<JSONObject>() {
+                    @Override
+                    public void onResponse(JSONObject response) {
+                        try {
+                            //si le serveur renvoie les informations:
+                            VolleyLog.v("Response:%n %s", response.toString(4));
+                            if (response.getJSONObject("request").getString("result").equals("OK")) {
+
+                                if (response.getJSONArray("feed") != null) {
+                                    Log.d("RESULT OF THE REQUEST:", "OK2");
+
+                                    ApplicationController.getInstance().getEventsList().add(new Events("Test1", null, "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.", "http://flyers.movetonight.com/_1373299509.jpg"));
+                                    ApplicationController.getInstance().getEventsList().add(new Events("Test12", null, "Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression. Le Lorem Ipsum est le faux texte standard de l'imprimerie depuis les années 1500, quand un peintre anonyme assembla ensemble des morceaux de texte pour réaliser un livre spécimen de polices de texte. Il n'a pas fait que survivre cinq siècles, mais s'est aussi adapté à la bureautique informatique, sans que son contenu n'en soit modifié. Il a été popularisé dans les années 1960 grâce à la vente de feuilles Letraset contenant des passages du Lorem Ipsum, et, plus récemment, par son inclusion dans des applications de mise en page de texte, comme Aldus PageMaker.", "http://www.ibiza-voice.com/media/calendar/2013/Miami/Ultra-Music-Festival-flyer-image.jpg"));
+                               /* for (int j = 0; j < response.getJSONArray("feed").length(); j++) {
+                                    if (response.getJSONArray("feed").get(j).equals("content") == "Henesis created an event.") {
+                                        ApplicationController.getInstance().getNewsfeedsList().add(new Newsfeeds(1, "event");
+                                    }*/
+                                }
+                            } else
+                                Toast.makeText(getApplicationContext(), getString(R.string.error_general), Toast.LENGTH_SHORT).show();
+
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                //En cas d'erreur de connexion au serveur
+                Toast.makeText(getApplicationContext(), getString(R.string.error_unable_access_server), Toast.LENGTH_SHORT).show();
+                VolleyLog.e("Error: ", error.getMessage());
+            }
+        });
+        // add the request object to the queue to be executed
+        ApplicationController.getInstance().addToRequestQueue(req, "NewFeed");
+
+    }
+
 }

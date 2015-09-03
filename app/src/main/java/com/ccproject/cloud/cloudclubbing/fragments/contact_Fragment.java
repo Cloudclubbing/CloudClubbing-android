@@ -1,32 +1,18 @@
 package com.ccproject.cloud.cloudclubbing.fragments;
 
-import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.util.Log;
+
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.webkit.WebBackForwardList;
-import android.widget.Toast;
-
-import com.android.volley.Request;
-import com.android.volley.Response;
-import com.android.volley.VolleyError;
-import com.android.volley.VolleyLog;
-import com.android.volley.toolbox.JsonObjectRequest;
-import com.ccproject.cloud.cloudclubbing.activities.ApplicationController;
-import com.ccproject.cloud.cloudclubbing.models.Customer;
 import com.ccproject.cloud.cloudclubbing.models.NightClub;
 import com.ccproject.test.myslidetest.R;
 import com.dexafree.materialList.cards.BigImageCard;
 import com.dexafree.materialList.cards.SmallImageCard;
 import com.dexafree.materialList.view.MaterialListView;
 
-import org.json.JSONException;
-import org.json.JSONObject;
+
 
 /**
  * Created by Macbook on 24/02/15.
@@ -34,7 +20,6 @@ import org.json.JSONObject;
 public class contact_Fragment extends Fragment
 {
     View                                rootview;
-    public static final String          PREFS_NAME = "ContactPrefFile";
 
 
     @Override

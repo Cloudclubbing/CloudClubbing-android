@@ -116,14 +116,14 @@ public class account_Fragment extends DialogFragment implements View.OnClickList
                         try {
                             //si le serveur renvoie les informations:
                             VolleyLog.v("Response:%n %s", response.toString(4));
-                            if (response.getString("request").equals("OK")) {
+                            if (response.getJSONObject("request").getString("result").equals("OK")) {
                                 Log.d("RESULT OF THE REQUEST:", "OK");
                                 Toast.makeText(getActivity(), getString(R.string.conection_succed), Toast.LENGTH_SHORT).show();
-                                Customer.getInstance().setId(response.getInt("id"));
-                                Customer.getInstance().setEmail(response.getString("email"));
-                                Customer.getInstance().setName(response.getString("name"));
-                                Customer.getInstance().setLogin(response.getString("login"));
-                                Customer.getInstance().setPictureURL(response.getString("picURL"));
+                                Customer.getInstance().setId(response.getJSONObject("user").getInt("id"));
+                                Customer.getInstance().setEmail(response.getJSONObject("user").getString("email"));
+                                Customer.getInstance().setName(response.getJSONObject("user").getString("name"));
+                                Customer.getInstance().setLogin(response.getJSONObject("user").getString("login"));
+                                Customer.getInstance().setPictureURL(response.getJSONObject("user").getString("picURL"));
                                 SharedPreferences settings = getActivity().getSharedPreferences(PREFS_NAME, 0);
                                 SharedPreferences.Editor editor = settings.edit();
                                 editor.putString("username", Customer.getInstance().getLogin());

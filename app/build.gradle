@@ -24,6 +24,8 @@ dependencies {
     compile 'com.android.support:appcompat-v7:21.0.3'
     compile project('libs:volley')
     compile 'com.github.dexafree:materiallist:2.4.3'
+    compile 'com.squareup.picasso:picasso:2.5.2'
+    compile 'com.kogitune:pre-lollipop-activity-transition:1.0.0'
 }
 
 repositories {

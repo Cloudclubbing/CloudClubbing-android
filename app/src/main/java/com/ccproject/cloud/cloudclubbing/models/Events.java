@@ -1,5 +1,7 @@
 package com.ccproject.cloud.cloudclubbing.models;
 
+import com.android.volley.toolbox.StringRequest;
+
 import java.util.Date;
 
 /**
@@ -10,7 +12,14 @@ public class Events {
     private String      name;
     private Date        eventDate;
     private String      description;
-    int                 photoId;
+    private String      pictureUrl;
+
+    public Events(String eventName, Date eventDate, String eventDescription, String pictureUrl) {
+        this.name           = eventName;
+        this.eventDate      = eventDate;
+        this.description    = eventDescription;
+        this.pictureUrl     = pictureUrl;
+    }
 
     public int getId() {
         return id;
@@ -44,11 +53,12 @@ public class Events {
         this.description = description;
     }
 
-    public int getPhotoId() {
-        return photoId;
+    public String getPictureUrl() {
+        return pictureUrl;
     }
 
-    public void setPhotoId(int photoId) {
-        this.photoId = photoId;
+    public void setPictureUrl(String pictureUrl) {
+        this.pictureUrl = pictureUrl;
     }
+
 }

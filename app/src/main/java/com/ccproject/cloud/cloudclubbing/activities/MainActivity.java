@@ -19,6 +19,7 @@ import com.ccproject.cloud.cloudclubbing.fragments.NavigationDrawerFragment;
 import com.ccproject.cloud.cloudclubbing.fragments.accountSettingFragment;
 import com.ccproject.cloud.cloudclubbing.fragments.account_Fragment;
 import com.ccproject.cloud.cloudclubbing.fragments.contact_Fragment;
+import com.ccproject.cloud.cloudclubbing.fragments.events_Fragment;
 import com.ccproject.cloud.cloudclubbing.fragments.media_Fragment;
 import com.ccproject.cloud.cloudclubbing.fragments.newsfeeds_Fragment;
 import com.ccproject.cloud.cloudclubbing.fragments.products_Fragment;
@@ -65,10 +66,10 @@ private CharSequence     mTitle;
                 objFragment = new newsfeeds_Fragment();
                 break;
             case 1:
-                objFragment = new ItemFragment();
-               break;
+                objFragment = new events_Fragment();
+                break;
             case 2:
-               objFragment = new products_Fragment();
+                objFragment = new ItemFragment();
                 break;
             case 3:
                 objFragment = new media_Fragment();

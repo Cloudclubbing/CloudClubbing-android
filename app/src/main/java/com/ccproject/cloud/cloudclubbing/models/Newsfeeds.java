@@ -13,6 +13,11 @@ public class Newsfeeds {
     public String          autorName;
     public int             photoId;
 
+    Newsfeeds(int my_id, String type) {
+        this.id = my_id;
+
+    }
+
     public int getId() {
         return id;
     }

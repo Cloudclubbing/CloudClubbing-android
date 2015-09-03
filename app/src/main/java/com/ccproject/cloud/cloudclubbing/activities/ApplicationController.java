@@ -1,15 +1,23 @@
 package com.ccproject.cloud.cloudclubbing.activities;
 
 import android.app.Application;
+import android.graphics.Bitmap;
+import android.support.v4.util.LruCache;
 import android.text.TextUtils;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.VolleyLog;
+import com.android.volley.toolbox.ImageLoader;
 import com.android.volley.toolbox.Volley;
+import com.ccproject.cloud.cloudclubbing.models.Events;
+import com.ccproject.cloud.cloudclubbing.models.Newsfeeds;
 import com.ccproject.cloud.cloudclubbing.tools.HttpRequest;
 
 import org.apache.http.impl.client.DefaultHttpClient;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by priteshasvinetsakou on 19/03/15.
@@ -23,6 +31,11 @@ public class ApplicationController extends Application {
 
     private static          ApplicationController           sInstance;
     private                 DefaultHttpClient               mHttpClient;
+    private                 ImageLoader                     imageLoader;
+    private                 List<Events>                    eventsList;
+    private                 List<Newsfeeds>                 newsfeedsList;
+
+
     private static HttpRequest my_httpRequest;
 
 
@@ -32,6 +45,20 @@ public class ApplicationController extends Application {
 
         // initialize the singleton
         sInstance = this;
+        eventsList = new ArrayList<Events>();
+        newsfeedsList = new ArrayList<Newsfeeds>();
+        this.imageLoader = new ImageLoader(this.getRequestQueue(), new ImageLoader.ImageCache() {
+            private final LruCache<String, Bitmap> cache = new LruCache<String, Bitmap>(20);
+            @Override
+            public Bitmap getBitmap(String url) {
+                return cache.get(url);
+            }
+
+            @Override
+            public void putBitmap(String url, Bitmap bitmap) {
+                cache.put(url, bitmap);
+            }
+        });
     }
 
     /**
@@ -83,7 +110,16 @@ public class ApplicationController extends Application {
             mRequestQueue.cancelAll(tag);
         }
     }
+    public List<Events> getEventsList() {
+        return eventsList;
+    }
 
+    public ImageLoader getImageLoader() {
+        return imageLoader;
+    }
 
+    public List<Newsfeeds> getNewsfeedsList() {
+        return newsfeedsList;
+    }
 
 }
