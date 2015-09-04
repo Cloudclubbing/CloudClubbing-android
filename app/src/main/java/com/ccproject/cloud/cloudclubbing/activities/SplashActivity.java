@@ -21,6 +21,7 @@ import com.ccproject.cloud.cloudclubbing.models.Newsfeeds;
 import com.ccproject.cloud.cloudclubbing.models.NightClub;
 import com.ccproject.test.myslidetest.R;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -137,14 +138,24 @@ public class SplashActivity extends Activity {
                             if (response.getJSONObject("request").getString("result").equals("OK")) {
 
                                 if (response.getJSONArray("feed") != null) {
-                                    Log.d("RESULT OF THE REQUEST:", "OK2");
+                                    ApplicationController.getInstance().getEventsList().add(new Events("Tomorowland", null, "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.", "http://flyers.movetonight.com/_1373299509.jpg"));
+                                    ApplicationController.getInstance().getEventsList().add(new Events("Ultra Music Festival", null, "Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression. Le Lorem Ipsum est le faux texte standard de l'imprimerie depuis les années 1500, quand un peintre anonyme assembla ensemble des morceaux de texte pour réaliser un livre spécimen de polices de texte. Il n'a pas fait que survivre cinq siècles, mais s'est aussi adapté à la bureautique informatique, sans que son contenu n'en soit modifié. Il a été popularisé dans les années 1960 grâce à la vente de feuilles Letraset contenant des passages du Lorem Ipsum, et, plus récemment, par son inclusion dans des applications de mise en page de texte, comme Aldus PageMaker.", "http://www.ibiza-voice.com/media/calendar/2013/Miami/Ultra-Music-Festival-flyer-image.jpg"));
+                                    final JSONArray result_array    = response.getJSONArray("feed");
+                                    for (int i = 0; i < result_array.length(); i++) {
+                                        JSONObject  array_line = result_array.getJSONObject(i);
+                                        if (array_line.getString("content").contains("Henesis created an event."))
+                                            ApplicationController.getInstance().
+                                                    getNewsfeedsList().add(new Newsfeeds(array_line.get("content").toString(), "Event", "Facebook", array_line.get("date").toString(), array_line.get("pictureURL").toString()));
+                                        if (array_line.getString("content").contains("new photos") || array_line.getString("content").contains("updated their cover photo.") || array_line.getString("content").contains("changed their profile picture"))
+                                            ApplicationController.getInstance().
+                                                    getNewsfeedsList().add(new Newsfeeds(array_line.get("content").toString(), "Photos", "Facebook", array_line.get("date").toString(), array_line.get("pictureURL").toString()));
 
-                                    ApplicationController.getInstance().getEventsList().add(new Events("Test1", null, "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.", "http://flyers.movetonight.com/_1373299509.jpg"));
-                                    ApplicationController.getInstance().getEventsList().add(new Events("Test12", null, "Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression. Le Lorem Ipsum est le faux texte standard de l'imprimerie depuis les années 1500, quand un peintre anonyme assembla ensemble des morceaux de texte pour réaliser un livre spécimen de polices de texte. Il n'a pas fait que survivre cinq siècles, mais s'est aussi adapté à la bureautique informatique, sans que son contenu n'en soit modifié. Il a été popularisé dans les années 1960 grâce à la vente de feuilles Letraset contenant des passages du Lorem Ipsum, et, plus récemment, par son inclusion dans des applications de mise en page de texte, comme Aldus PageMaker.", "http://www.ibiza-voice.com/media/calendar/2013/Miami/Ultra-Music-Festival-flyer-image.jpg"));
-                               /* for (int j = 0; j < response.getJSONArray("feed").length(); j++) {
-                                    if (response.getJSONArray("feed").get(j).equals("content") == "Henesis created an event.") {
-                                        ApplicationController.getInstance().getNewsfeedsList().add(new Newsfeeds(1, "event");
-                                    }*/
+                                        else
+                                            ApplicationController.getInstance().
+                                                    getNewsfeedsList().add(new Newsfeeds(array_line.get("content").toString(), "Status", "Facebook", array_line.get("date").toString(), array_line.get("pictureURL").toString()));
+
+
+                                    }
                                 }
                             } else
                                 Toast.makeText(getApplicationContext(), getString(R.string.error_general), Toast.LENGTH_SHORT).show();

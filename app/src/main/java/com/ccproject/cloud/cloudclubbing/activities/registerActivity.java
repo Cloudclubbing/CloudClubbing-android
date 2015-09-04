@@ -15,6 +15,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.VolleyLog;
 import com.android.volley.toolbox.JsonObjectRequest;
+import com.ccproject.cloud.cloudclubbing.tools.CustomRequest;
 import com.ccproject.test.myslidetest.R;
 
 import org.json.JSONException;
@@ -23,7 +24,9 @@ import org.json.JSONObject;
 import java.io.UnsupportedEncodingException;
 import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import static com.ccproject.cloud.cloudclubbing.tools.Tools.SHA1;
 
@@ -41,7 +44,7 @@ public class registerActivity extends ActionBarActivity {
         button.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 List<String> params = getParams();
-                registerRequest(params.get(0), params.get(1), params.get(2));
+                register(params.get(0), params.get(2));
             }
         });
     }
@@ -72,7 +75,7 @@ public class registerActivity extends ActionBarActivity {
 
         List<String>    params  =   new ArrayList<>();
 
-        EditText        text    = (EditText) findViewById(R.id.username_register);
+        EditText        text    = (EditText)  findViewById(R.id.username_register);
         params.add(text.getText().toString());
         text                    = (EditText) findViewById(R.id.email_register);
         params.add(text.getText().toString());
@@ -95,7 +98,7 @@ public class registerActivity extends ActionBarActivity {
         }
         finalurl                    =   finalurl + "&email=" + email;
         Log.d("URL= ", finalurl);
-        JsonObjectRequest req = new JsonObjectRequest(Request.Method.GET, finalurl, null,
+        JsonObjectRequest req = new JsonObjectRequest(Request.Method.POST, finalurl, null,
                 new Response.Listener<JSONObject>() {
                     @Override
                     public void onResponse(JSONObject response) {
@@ -125,7 +128,70 @@ public class registerActivity extends ActionBarActivity {
         });
 
         // add the request object to the queue to be executed
+
+
         ApplicationController.getInstance().addToRequestQueue(req, "Login");
+    }
+
+
+    public void                 register(String username, String password) {
+
+        Map<String, String> params 	= new HashMap<String, String>();
+        String          url    =   getString(R.string.IP) + "user/register.php";
+        String          passwordsha1 = null;
+        try {
+            passwordsha1 = SHA1(password);
+        } catch (NoSuchAlgorithmException e) {
+            e.printStackTrace();
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+        }
+        params.put("login", username);
+        params.put("password", passwordsha1);
+        Log.d("Params:", params.toString());
+
+
+        CustomRequest jsObjRequest = new CustomRequest(Request.Method.POST, url, params, this.createMyReqSuccessListener(), this.createMyReqErrorListener());
+        ApplicationController.getInstance().addToRequestQueue(jsObjRequest, "Register");
+
+    }
+
+    private Response.Listener<JSONObject> createMyReqSuccessListener() {
+        return new Response.Listener<JSONObject>() {
+            @Override
+            public void onResponse(JSONObject response) {
+                try {
+                        VolleyLog.v("Response:%n %s", response.toString(4));
+                        if (response.getString("request").equals("OK")) {
+                            //Display message and change of view after the register succed
+                            Log.d("TEST POST", "YES!!!!");
+                            Toast.makeText(getApplicationContext(), getString(R.string.register_succed), Toast.LENGTH_SHORT).show();
+                            my_obj.finish();
+                        }
+                        if (response.getString("request").equals("KO")) {
+                            Log.d("TEST POST2", "YES!!!!");
+
+                            if (response.getInt("errno") == 1)
+                                Toast.makeText(getApplicationContext(), getString(R.string.account_exists), Toast.LENGTH_SHORT).show();
+                            if (response.getInt("errno") == 2)
+                                Toast.makeText(getApplicationContext(), getString(R.string.error_general), Toast.LENGTH_SHORT).show();
+                        }
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            };
+        };
+    }
+
+    private Response.ErrorListener createMyReqErrorListener() {
+        return new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Log.d("TEST POST2", "YES!!!!");
+                Toast.makeText(getApplicationContext(), getString(R.string.error_unable_access_server), Toast.LENGTH_SHORT).show();
+                VolleyLog.e("Error: ", error.getMessage());
+            }
+        };
     }
 
     @Override

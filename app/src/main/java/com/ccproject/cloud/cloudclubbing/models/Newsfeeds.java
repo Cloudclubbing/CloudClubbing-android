@@ -7,55 +7,40 @@ import java.util.Date;
  */
 public class Newsfeeds {
 
-    public int             id;
-    public String          flowMessage;
-    public Date             date;
-    public String          autorName;
-    public int             photoId;
+    private String              content;
+    private String              content_type;
+    private String              socialMedia_type;
+    private String              date;
+    private String              pictureURL;
 
-    Newsfeeds(int my_id, String type) {
-        this.id = my_id;
-
+    public Newsfeeds(String my_content, String my_contentType, String my_socialMedia_type, String  my_date, String my_pictureUrl) {
+        this.content            =   my_content;
+        this.content_type       =   my_contentType;
+        this.socialMedia_type   =   my_socialMedia_type;
+        this.date               =   my_date;
+        this.pictureURL         =   my_pictureUrl;
     }
 
-    public int getId() {
-        return id;
+
+
+    public String getPictureURL() {
+        return pictureURL;
     }
 
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public String getFlowMessage() {
-        return flowMessage;
-    }
-
-    public void setFlowMessage(String flowMessage) {
-        this.flowMessage = flowMessage;
-    }
-
-    public Date getDate() {
+    public String getDate() {
         return date;
     }
 
-    public void setDate(Date date) {
-        this.date = date;
+    public String getSocialMedia_type() {
+        return socialMedia_type;
     }
 
-    public String getAutorName() {
-        return autorName;
+    public String getContent_type() {
+        return content_type;
     }
 
-    public void setAutorName(String autorName) {
-        this.autorName = autorName;
-    }
-
-    public int getPhotoId() {
-        return photoId;
-    }
-
-    public void setPhotoId(int photoId) {
-        this.photoId = photoId;
+    public String getContent() {
+        return content;
     }
 
 }
